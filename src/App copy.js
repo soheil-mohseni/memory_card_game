@@ -1,8 +1,8 @@
 
 import React , { useState , useEffect , useRef} from "react";
 import "./style.css"
-import { ran_img } from "./bank_list_img"
-import Image from "./Image";
+import { ran_img } from "./components/bank_list_img"
+import Context from "./components/Context";
 
 
 function App() {
@@ -51,7 +51,7 @@ useEffect(() => {
 
 
   return (
-   
+  <>
         <div style={{backgroundColor: "red" }} class="grid grid-cols-6 gap-2 max-w-4xl ml-12 mr-12">
           
           {deciderimg && bank_imgs.map((imgs,index) => {
@@ -77,12 +77,16 @@ useEffect(() => {
           {!deciderimg && bank_imgs.map((imgas,index) => {
             return(
             <>
-                <img key={index} src={ require("./qq.webp")}/>
+                <img key={index} src={ require("./components/qq.webp")}/>
             </>
             )
           })}
 
         </div>
+        <div style={{display: "none"}}>
+          <Context/>
+        </div>
+    </>
   );
 }
 
